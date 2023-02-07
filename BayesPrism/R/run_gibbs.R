@@ -253,6 +253,10 @@ run.gibbs.refPhi <- function(gibbsSampler.obj,
 	if(gibbs.control$n.cores>1){	
 		#parallel using snowfall	
 		sfInit(parallel = TRUE, cpus = gibbs.control$n.cores, type = "SOCK" )
+		environment(sample.Z.theta_n)<-globalenv()
+		environment(sample.theta_n)<-globalenv()
+		environment(rdirichlet)<-globalenv()
+		environment(Rcgminu)<-globalenv()
 		sfExport("phi", "X", "alpha", "gibbs.idx", "seed", "compute.elbo")
 
 		if(!final){
