@@ -257,7 +257,7 @@ run.gibbs.refPhi <- function(gibbsSampler.obj,
 		environment(sample.theta_n)<-globalenv()
 		environment(rdirichlet)<-globalenv()
 		environment(Rcgminu)<-globalenv()
-		sfExport("phi", "X", "alpha", "gibbs.idx", "seed", "compute.elbo")
+		sfExport("phi", "X", "alpha", "gibbs.idx", "seed", "compute.elbo", "sample.Z.theta_n","sample.theta_n","rdirichlet", "Rcgminu")
 
 		if(!final){
 			cpu.fun <- function(n) {
